@@ -1,0 +1,13 @@
+# Test GPIO playback file
+# Toggle the output a few times. If a LED is connected to the output,
+# it should blink 3 times.
+
+# The first value is duration (in µs) and the second is the output level
+# (one of 0, 1, false or true).
+
+2000000 1 # turn on for 2 seconds
+1000000 0 # and off for 1
+2000000 1 # ... and so on
+1000000 0
+2000000 1
+0 0 # ... and turn off
