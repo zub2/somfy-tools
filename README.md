@@ -1,6 +1,16 @@
 # Somfy-tools
 
-A set of tools to receive, decode, and transmit Somfy RTS Protocol frames, either on the Raspberry Pi using OOK receiver and transmitter modules connected to GPIO, or (only for input) using [rtl_sdr](https://osmocom.org/projects/sdr/wiki/rtl-sdr). It's based on the description available at the [Pushstack blog](https://pushstack.wordpress.com/somfy-rts-protocol/). Also included is a tool to record and play back signal via GPIO. This can be used for debugging.
+A set of tools to receive, decode, and transmit Somfy RTS Protocol frames, either on the Raspberry Pi using OOK receiver and transmitter modules connected to GPIO, or (only for input) using [rtl_sdr](https://osmocom.org/projects/sdr/wiki/rtl-sdr).
+
+The protocol is used by some blinds, shades, rolling shutters, awnings, etc. by [Somfy](https://www.somfysystems.com/). If you have such a device, you can use this software to both receive what the Somfy remote sends and also to broadcast your own commands.
+
+The code is based on the description available at the [Pushstack blog](https://pushstack.wordpress.com/somfy-rts-protocol/). Also included is a tool to record and play back signal via GPIO. This can be used for debugging.
+
+## Compiling
+
+CMake, a C++ compiler supporting C++ 17 (e.g. gcc 6.4) and the [boost](http://boost.org/) libraries are required. To build the complete `sdr-somfy-decoder`, [rtl_sdr](https://osmocom.org/projects/sdr/wiki/rtl-sdr) is needed too. (Without rtl_sdr only a version that can decode an IQ log (analytic signal) is built.)
+
+## Tools
 
 This is essentially a C++ version of [octave-somfy](https://github.com/zub2/octave-somfy) extended by the ability to record and transmit via GPIO.
 
@@ -13,12 +23,6 @@ The following tools are included:
 	* `gpio-somfy-transmitter`
 * using rtl_sdr:
 	* `sdr-somfy-decoder`
-
-## Compiling
-
-CMake, a C++ compiler supporting C++ 17 (e.g. gcc 6.4) and the [boost](http://boost.org/) libraries are required. To build the complete `sdr-somfy-decoder`, [rtl_sdr](https://osmocom.org/projects/sdr/wiki/rtl-sdr) is needed too. (Without rtl_sdr only a version that can decode an IQ log (analytic signal) is built.)
-
-## Tools
 
 The `gpio-*` tools can be only used on the Raspberry Pi because they use a mechanism specific to the device. Standard [Linux GPIO interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) is not used becuase its speed, at least on the Raspberry Pi, is not sufficient and it easily drops data. Raspberry Pi specific `mmap()` is used instead. For this reason access to `/dev/mem` is needed which normally requires to run the programs as root.
 
@@ -153,3 +157,18 @@ address: 0x336945
 ## Tests
 
 There are also some tests in the directory `test`. They can be run either via the build system (e.g. `make test`) or by running the executable `tests` directly.
+
+## Links
+
+This is not the only piece of software that can be used for the task. But finding other useful projects is, in my opinion, difficult because they are mostly obscure. Anyway here are some links I've found:
+
+* [NodeMCU](https://en.wikipedia.org/wiki/NodeMCU)'s [Somfy module](https://nodemcu.readthedocs.io/en/master/en/modules/somfy/) - It seems the NodeMCU (an [ESP8266](https://en.wikipedia.org/wiki/ESP8266) with [custom firmware](http://nodemcu.com/index_en.html)) contains a module that can send Somfy RTS commands via a GPIO-connected OOK transmitter. I found this via [NodeMCU-Somfy](https://github.com/StryKaizer/NodeMCU-Somfy) which adds a web interface on top of it.
+* [Somfy-Remote](https://github.com/Nickduino/Somfy_Remote) - An Arduino Sketch that can send a Somfy RTS frame via a GPIO-connected OOK transmitter. (NodeMCU's somfy module mentions it's based on this)
+* [OpenHAB](http://www.openhab.org/) has binding to [RFXCOM devices](https://docs.openhab.org/addons/bindings/rfxcom1/readme.html). With the
+[RFXtrx433E](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) and the binding you can send Somfy RTS frames.
+* [henrythasler/sdr](https://github.com/henrythasler/sdr) - A collection of tools related to SDR, [Somfy RTS receiver and transmitter](https://github.com/henrythasler/sdr/tree/master/somfy) are included. Also contains some useful RF intro documents.
+
+There are also some interesting devices:
+
+* [RFXtrx433E](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) which I discovered via the [OpenHAB binding](https://docs.openhab.org/addons/bindings/rfxcom1/readme.html). It connects via USB, so you can connect it to any PC and you don't have to worry about timing, the device handles that. It also has a transmitter at the correct frequency for Somfy RTS (433.42 MHz). It presents itself as a serial device so communicating with it is also easy. But it's not cheap and as far as I can tell it can't receive Somfy RTS frames.
+* [RFM69HCW](http://www.hoperf.com/rf_transceiver/modules/RFM69HCW.html) (used by [henrythasler/sdr Somfy RTS receiver and transmitter](https://github.com/henrythasler/sdr/tree/master/somfy)) - It connects via [SPI](https://cs.wikipedia.org/wiki/Serial_Peripheral_Interface) and seems to have [many features](http://www.hoperf.com/upload/rf/RFM69HCW-V1.1.pdf).
