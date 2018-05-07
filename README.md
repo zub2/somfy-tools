@@ -130,7 +130,7 @@ An example invocation looks like this:
 
 ### sdr-somfy-decoder
 
-A tool that can decode Somfy RTS frames either from a [rtl_sdr](https://osmocom.org/projects/sdr/wiki/rtl-sdr) device or from a rtl_sdr log. Alternatively, an IQ log (analytic signal) can be used.
+A tool that can decode Somfy RTS frames either from a [rtl_sdr](https://osmocom.org/projects/sdr/wiki/rtl-sdr) device or from a rtl_sdr log.
 
 Example:
 
