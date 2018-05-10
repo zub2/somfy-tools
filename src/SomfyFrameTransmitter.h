@@ -21,7 +21,7 @@
 
 #include "SomfyFrame.h"
 #include "SomfyFrameType.h"
-#include "PlaybackThread.h"
+#include "backend/rpi-gpio/PlaybackThread.h"
 #include "GPIOLogWriter.h"
 #include "DurationBuffer.h"
 

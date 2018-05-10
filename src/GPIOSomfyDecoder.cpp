@@ -18,7 +18,7 @@
  */
 #include "SigIntHandler.h"
 #include "Clock.h"
-#include "RecordingThread.h"
+#include "backend/rpi-gpio/RecordingThread.h"
 #include "DurationTracker.h"
 #include "SomfyDecoder.h"
 #include "GPIOLogReader.h"

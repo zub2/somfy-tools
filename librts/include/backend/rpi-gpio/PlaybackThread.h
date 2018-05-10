@@ -21,7 +21,7 @@
 
 #include "Clock.h"
 #include "Duration.h"
-#include "FastGPIO.h"
+#include "backend/rpi-gpio/FastGPIO.h"
 
 #include <utility>
 #include <thread>

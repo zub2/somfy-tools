@@ -32,7 +32,7 @@
 
 #include <boost/circular_buffer.hpp>
 
-#include "RTLSDRDevice.h"
+#include "backend/rtlsdr/RTLSDRDevice.h"
 #include "RTLSDRBufferReader.h"
 
 class RTLSDRIQSource

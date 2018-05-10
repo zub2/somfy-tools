@@ -24,7 +24,7 @@
 
 #include "Clock.h"
 #include "Transition.h"
-#include "Filter.h"
+#include "backend/rtlsdr/Filter.h"
 
 // convert from IQ signal to transitions
 template<typename IQSource>

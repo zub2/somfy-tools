@@ -18,7 +18,7 @@
  */
 #include "DurationFileReader.h"
 #include "DurationBuffer.h"
-#include "PlaybackThread.h"
+#include "backend/rpi-gpio/PlaybackThread.h"
 
 #include <iostream>
 

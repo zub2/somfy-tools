@@ -19,7 +19,7 @@
 #include "Clock.h"
 #include "Transition.h"
 #include "GPIOLogWriter.h"
-#include "RecordingThread.h"
+#include "backend/rpi-gpio/RecordingThread.h"
 #include "DurationTracker.h"
 
 #include <iostream>

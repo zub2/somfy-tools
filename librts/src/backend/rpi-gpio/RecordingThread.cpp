@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "RecordingThread.h"
-#include "ThreadPrio.h"
+#include "backend/rpi-gpio/RecordingThread.h"
+#include "../../ThreadPrio.h"
 
 #include <sched.h>
 

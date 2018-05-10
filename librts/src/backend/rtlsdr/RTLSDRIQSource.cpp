@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "RTLSDRIQSource.h"
+#include "backend/rtlsdr/RTLSDRIQSource.h"
 
 #include <iostream>
 #include <assert.h>
