@@ -24,7 +24,6 @@
 #include "Clock.h"
 #include "Transition.h"
 #include "Duration.h"
-#include "RecordingThread.h"
 
 template<typename Source>
 class DurationTracker
