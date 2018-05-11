@@ -24,6 +24,9 @@
 
 #include <iostream>
 
+namespace rts
+{
+
 SomfyFrameMatcher::SomfyFrameMatcher(double tolerance):
 	m_tolerance(tolerance),
 	m_matcherNormal(SOMFY_HEADER_NORMAL.durations, SOMFY_HEADER_NORMAL.count),
@@ -122,3 +125,5 @@ void SomfyFrameMatcher::SequenceMatcher::reset()
 {
 	m_matchedCount = 0;
 }
+
+} // namespace rts

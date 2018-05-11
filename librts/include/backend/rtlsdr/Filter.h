@@ -24,6 +24,9 @@
 
 #include <boost/circular_buffer.hpp>
 
+namespace rts
+{
+
 class Filter
 {
 public:
@@ -85,5 +88,7 @@ private:
 	boost::circular_buffer<float> m_pastOutputs; // Y
 	boost::circular_buffer<float> m_pastInputs; // X
 };
+
+} // namespace rts
 
 #endif // FILTER_H

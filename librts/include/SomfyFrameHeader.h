@@ -22,6 +22,9 @@
 #include "Clock.h"
 #include "Duration.h"
 
+namespace rts
+{
+
 struct SomfyFrameHeader
 {
 	const Duration * durations;
@@ -30,5 +33,7 @@ struct SomfyFrameHeader
 
 extern const SomfyFrameHeader SOMFY_HEADER_NORMAL;
 extern const SomfyFrameHeader SOMFY_HEADER_REPEAT;
+
+} // namespace rts
 
 #endif // SOMFY_FRAME_HEADER_H

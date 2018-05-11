@@ -20,6 +20,9 @@
 
 #include <chrono>
 
+namespace rts
+{
+
 using namespace std::literals;
 
 const Clock::duration ManchesterEncoder::HALF_SYMBOL_DURATION = 645us;
@@ -41,3 +44,5 @@ void ManchesterEncoder::appendHalfSymbol(bool b)
 {
 	m_buffer << Duration(HALF_SYMBOL_DURATION, b);
 }
+
+} // namespace rts

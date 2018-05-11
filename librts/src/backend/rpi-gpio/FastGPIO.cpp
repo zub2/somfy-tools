@@ -31,6 +31,9 @@
 
 #include <boost/format.hpp>
 
+namespace rts
+{
+
 namespace
 {
 	/*
@@ -134,3 +137,5 @@ FastGPIO::~FastGPIO()
 {
 	munmap(const_cast<uint32_t*>(m_gpioMem), MAP_LENGTH);
 }
+
+} // namespace rts

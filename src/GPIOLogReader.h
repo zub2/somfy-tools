@@ -33,11 +33,11 @@ class GPIOLogReader
 public:
 	GPIOLogReader(const std::string & fileName);
 
-	std::optional<Duration> get();
+	std::optional<rts::Duration> get();
 
 public:
 	std::optional<uint64_t> readUint64();
-	std::optional<Clock::duration> readDuration();
+	std::optional<rts::Clock::duration> readDuration();
 
 	std::ifstream m_stream;
 	bool m_state;

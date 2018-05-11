@@ -25,6 +25,9 @@
 #include "Transition.h"
 #include "Duration.h"
 
+namespace rts
+{
+
 template<typename Source>
 class DurationTracker
 {
@@ -56,5 +59,7 @@ private:
 	Source & m_source;
 	std::optional<Transition> m_lastTransition;
 };
+
+} // namespace rts
 
 #endif // DURATION_TRACKER_H

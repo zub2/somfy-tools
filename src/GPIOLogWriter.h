@@ -33,14 +33,14 @@ public:
 	GPIOLogWriter(const std::string & fileName);
 	~GPIOLogWriter();
 
-	void write(const Duration & duration);
+	void write(const rts::Duration & duration);
 
 public:
 	void writeUint64(uint64_t value);
-	void writeDuration(const Clock::duration & d);
+	void writeDuration(const rts::Clock::duration & d);
 
 	std::ofstream m_stream;
-	std::optional<Duration> m_lastDuration;
+	std::optional<rts::Duration> m_lastDuration;
 };
 
 #endif // GPIO_LOG_WRITER_H

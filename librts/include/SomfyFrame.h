@@ -24,6 +24,9 @@
 #include <vector>
 #include <stdexcept>
 
+namespace rts
+{
+
 class WrongFrameChecksumException: public std::runtime_error
 {
 public:
@@ -104,5 +107,7 @@ private:
 	uint16_t m_rollingCode;
 	uint32_t m_address;
 };
+
+} // namespace rts
 
 #endif // SOMFY_FRAME_H

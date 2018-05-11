@@ -28,7 +28,7 @@
 
 using namespace std::literals;
 
-const Duration SomfyFrameTransmitter::INTER_FRAME_GAP(27555us, false);
+const rts::Duration SomfyFrameTransmitter::INTER_FRAME_GAP(27555us, false);
 
 SomfyFrameTransmitter::SomfyFrameTransmitter(unsigned gpioNr, bool verbose, bool dryRun, const std::string & debugLog):
 	m_verbose(verbose)
@@ -52,39 +52,39 @@ SomfyFrameTransmitter::~SomfyFrameTransmitter()
 		m_playbackThread->stop();
 }
 
-void SomfyFrameTransmitter::send(const SomfyFrame & frame, size_t repeatFrameCount)
+void SomfyFrameTransmitter::send(const rts::SomfyFrame & frame, size_t repeatFrameCount)
 {
 	// prepare frame payload
-	const std::vector<Duration> frameSamples = getEncodedFramePayload(frame);
+	const std::vector<rts::Duration> frameSamples = getEncodedFramePayload(frame);
 
-	DurationBuffer buffer;
+	rts::DurationBuffer buffer;
 
 	buffer << INTER_FRAME_GAP;
-	appendFrame(buffer, SomfyFrameType::normal, frameSamples);
+	appendFrame(buffer, rts::SomfyFrameType::normal, frameSamples);
 
 	for (size_t i = 0; i < repeatFrameCount; i++)
 	{
 		buffer << INTER_FRAME_GAP;
-		appendFrame(buffer, SomfyFrameType::repeat, frameSamples);
+		appendFrame(buffer, rts::SomfyFrameType::repeat, frameSamples);
 	}
 
 	// add inter-frame gap (even if there is no further frame coming,
 	// it makes sense to ensure there is a pause)
 	buffer << INTER_FRAME_GAP;
 
-	const std::vector<Duration> & durationVector = buffer.get();
+	const std::vector<rts::Duration> & durationVector = buffer.get();
 
 	if (m_verbose)
 	{
 		std::cout << "Whole data (header + payload) + inter frame gap + repeat frames, manchester-encoded:\n";
-		for (const Duration & d : durationVector)
+		for (const rts::Duration & d : durationVector)
 			std::cout << std::chrono::duration_cast<std::chrono::microseconds>(d.first).count() << "µs " << d.second << "\n";
 		std::cout << std::endl;
 	}
 
 	if (m_debugLogWriter)
 	{
-		for (const Duration & duration : durationVector)
+		for (const rts::Duration & duration : durationVector)
 			m_debugLogWriter->write(duration);
 	}
 
@@ -94,17 +94,17 @@ void SomfyFrameTransmitter::send(const SomfyFrame & frame, size_t repeatFrameCou
 		std::cout << "Not transmitting because dry run mode is enabled." << std::endl;
 }
 
-void SomfyFrameTransmitter::appendFrame(DurationBuffer & buffer, SomfyFrameType frameType, const std::vector<Duration> & frameSamples)
+void SomfyFrameTransmitter::appendFrame(rts::DurationBuffer & buffer, rts::SomfyFrameType frameType, const std::vector<rts::Duration> & frameSamples)
 {
 	// header
-	const SomfyFrameHeader * header;
+	const rts::SomfyFrameHeader * header;
 	switch (frameType)
 	{
-	case SomfyFrameType::normal:
-		header = &SOMFY_HEADER_NORMAL;
+	case rts::SomfyFrameType::normal:
+		header = &rts::SOMFY_HEADER_NORMAL;
 		break;
-	case SomfyFrameType::repeat:
-		header = &SOMFY_HEADER_REPEAT;
+	case rts::SomfyFrameType::repeat:
+		header = &rts::SOMFY_HEADER_REPEAT;
 		break;
 	default:
 		throw std::runtime_error("unknown frame type");
@@ -119,7 +119,7 @@ void SomfyFrameTransmitter::appendFrame(DurationBuffer & buffer, SomfyFrameType 
 	std::copy(frameSamples.begin(), frameSamples.end(), std::back_inserter(buffer));
 }
 
-std::vector<Duration> SomfyFrameTransmitter::getEncodedFramePayload(const SomfyFrame & frame)
+std::vector<rts::Duration> SomfyFrameTransmitter::getEncodedFramePayload(const rts::SomfyFrame & frame)
 {
 	const std::vector<uint8_t> & bytes = frame.getBytes();
 
@@ -135,7 +135,7 @@ std::vector<Duration> SomfyFrameTransmitter::getEncodedFramePayload(const SomfyF
 		std::cout << std::endl << std::dec;
 	}
 
-	ManchesterEncoder encoder;
+	rts::ManchesterEncoder encoder;
 	for (uint8_t byte : bytes)
 	{
 		for (size_t i = 0; i < CHAR_BIT; i++)

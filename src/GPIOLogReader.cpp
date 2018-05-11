@@ -31,13 +31,13 @@ GPIOLogReader::GPIOLogReader(const std::string & fileName)
 	m_state = *initialState != 0;
 }
 
-std::optional<Duration> GPIOLogReader::get()
+std::optional<rts::Duration> GPIOLogReader::get()
 {
-	std::optional<Clock::duration> d = readDuration();
+	std::optional<rts::Clock::duration> d = readDuration();
 	if (!d)
 		return std::nullopt;
 
-	Duration duration(*d, m_state);
+	rts::Duration duration(*d, m_state);
 	m_state = !m_state;
 
 	return duration;
@@ -56,7 +56,7 @@ std::optional<std::uint64_t> GPIOLogReader::readUint64()
 	return value;
 }
 
-std::optional<Clock::duration> GPIOLogReader::readDuration()
+std::optional<rts::Clock::duration> GPIOLogReader::readDuration()
 {
 	std::optional<std::uint64_t> ts = readUint64();
 	if (!ts)

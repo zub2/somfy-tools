@@ -21,6 +21,9 @@
 
 #include <complex>
 
+namespace rts
+{
+
 class RTLSDRBufferReader
 {
 public:
@@ -69,5 +72,7 @@ private:
 	const uint8_t * m_buffer;
 	size_t m_size; // number of pairs (i, q) in the buffer
 };
+
+} // namespace rts
 
 #endif // RTLSDR_BUFFER_READER_H

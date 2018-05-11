@@ -30,6 +30,9 @@
 #include <vector>
 #include <chrono>
 
+namespace rts
+{
+
 class PlaybackThread
 {
 public:
@@ -55,5 +58,7 @@ private:
 	std::vector<Duration> m_playbackBuffer;
 	std::condition_variable m_playbackRequestCondVar;
 };
+
+} // namespace rts
 
 #endif // PLAYBACK_THREAD_H

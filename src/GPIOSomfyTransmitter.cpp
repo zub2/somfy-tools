@@ -36,7 +36,7 @@ namespace
 {
 	constexpr size_t DEFAULT_REPEAT_FRAMES = 1;
 
-	void play(unsigned gpioNr, uint8_t key, SomfyFrame::Action ctrl, uint16_t rollingCode, uint32_t address,
+	void play(unsigned gpioNr, uint8_t key, rts::SomfyFrame::Action ctrl, uint16_t rollingCode, uint32_t address,
 		size_t nRepeatFrames, bool verbose, bool dryRun, const std::string & logFile)
 	{
 		if (verbose)
@@ -44,35 +44,39 @@ namespace
 		SomfyFrameTransmitter transmitter(gpioNr, verbose, dryRun, logFile);
 
 		// send 1 normal and 1 repeat frame
-		const SomfyFrame frame(key, ctrl, rollingCode, address);
+		const rts::SomfyFrame frame(key, ctrl, rollingCode, address);
 		transmitter.send(frame, nRepeatFrames);
 	}
 
-	const std::map<std::string, SomfyFrame::Action> ACTION_NAMES =
+	const std::map<std::string, rts::SomfyFrame::Action> ACTION_NAMES =
 	{
-		{ "up", SomfyFrame::Action::up },
-		{ "down", SomfyFrame::Action::down },
-		{ "my", SomfyFrame::Action::my },
-		{ "my+down", SomfyFrame::Action::my_down },
-		{ "up+down", SomfyFrame::Action::up_down },
-		{ "flag", SomfyFrame::Action::flag },
-		{ "sun+flag", SomfyFrame::Action::sun_flag },
-		{ "prog", SomfyFrame::Action::prog }
+		{ "up", rts::SomfyFrame::Action::up },
+		{ "down", rts::SomfyFrame::Action::down },
+		{ "my", rts::SomfyFrame::Action::my },
+		{ "my+down", rts::SomfyFrame::Action::my_down },
+		{ "up+down", rts::SomfyFrame::Action::up_down },
+		{ "flag", rts::SomfyFrame::Action::flag },
+		{ "sun+flag", rts::SomfyFrame::Action::sun_flag },
+		{ "prog", rts::SomfyFrame::Action::prog }
 	};
 }
 
-std::istream & operator>>(std::istream & in, SomfyFrame::Action & action)
+// defined in namespace rts because of Argument-dependent lookup
+namespace rts
 {
-	std::string token;
-	in >> token;
+	std::istream & operator>>(std::istream & in, SomfyFrame::Action & action)
+	{
+		std::string token;
+		in >> token;
 
-	auto it = ACTION_NAMES.find(token);
-	if (it != ACTION_NAMES.end())
-		action = it->second;
-	else
-		in.setstate(std::ios_base::failbit);
+		auto it = ACTION_NAMES.find(token);
+		if (it != ACTION_NAMES.end())
+			action = it->second;
+		else
+			in.setstate(std::ios_base::failbit);
 
-	return in;
+		return in;
+	}
 }
 
 // a simple wrapper around an integral type used solely to let boost::program_options
@@ -108,7 +112,7 @@ int main(int argc, char * argv[])
 	{
 		unsigned gpioNr;
 		Number<uint8_t> key;
-		SomfyFrame::Action ctrl;
+		rts::SomfyFrame::Action ctrl;
 		Number<uint16_t> rollingCode;
 		Number<uint32_t> address;
 		Number<uint32_t> nRepeatFrames = { DEFAULT_REPEAT_FRAMES };

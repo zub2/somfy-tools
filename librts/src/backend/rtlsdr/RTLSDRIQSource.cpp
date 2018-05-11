@@ -21,6 +21,9 @@
 #include <iostream>
 #include <assert.h>
 
+namespace rts
+{
+
 RTLSDRIQSource::RTLSDRIQSource(RTLSDRDevice & rtlSdrDevice, size_t bufferSize, size_t bufferCount,
 		const std::string & logName):
 	m_rtlSDRDevice(rtlSdrDevice),
@@ -161,3 +164,5 @@ void RTLSDRIQSource::readBuffer(TBuffer & buffer)
 
 	buffer.resize(wasRead);
 }
+
+} // namespace rts

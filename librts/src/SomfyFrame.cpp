@@ -18,6 +18,9 @@
  */
 #include "SomfyFrame.h"
 
+namespace rts
+{
+
 // this is based on https://pushstack.wordpress.com/somfy-rts-protocol/
 SomfyFrame::SomfyFrame():
 	SomfyFrame(0, Action::my, 0, 0)
@@ -91,3 +94,5 @@ uint8_t SomfyFrame::checksum(const std::vector<uint8_t> & data)
 
 	return c & 0xf;
 }
+
+} // namespace rts

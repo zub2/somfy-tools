@@ -24,6 +24,9 @@
 #include <vector>
 #include <iostream>
 
+namespace rts
+{
+
 RTLSDRDevice::RTLSDRDevice(uint32_t deviceIndex):
 	m_device(nullptr),
 	m_reading(false)
@@ -88,3 +91,5 @@ size_t RTLSDRDevice::readSync(uint8_t * buffer, size_t size)
 
 	return wasRead;
 }
+
+} // namespace rts

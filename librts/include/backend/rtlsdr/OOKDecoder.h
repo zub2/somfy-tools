@@ -26,6 +26,9 @@
 #include "Transition.h"
 #include "backend/rtlsdr/Filter.h"
 
+namespace rts
+{
+
 // convert from IQ signal to transitions
 template<typename IQSource>
 class OOKDecoder
@@ -130,5 +133,7 @@ private:
 	Filter m_butterworthLowPass;
 	std::optional<bool> m_lastValue;
 };
+
+} // namespace rts
 
 #endif // OOK_DECODER_H

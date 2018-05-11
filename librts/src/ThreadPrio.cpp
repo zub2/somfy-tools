@@ -24,6 +24,9 @@
 #include <pthread.h>
 #include <sched.h>
 
+namespace rts
+{
+
 void setThreadSchedulerAndPrio(std::thread & thread, int schedAlgo)
 {
 	const pthread_t nativeHandle = thread.native_handle();
@@ -40,3 +43,5 @@ void setThreadSchedulerAndPrio(std::thread & thread, int schedAlgo)
 	if (r != 0)
 		throw std::system_error(errno, std::generic_category(), "pthread_setschedparam failed");
 }
+
+} // namespace rts

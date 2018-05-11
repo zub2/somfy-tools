@@ -21,6 +21,9 @@
 
 #include <chrono>
 
+namespace rts
+{
+
 using namespace std::literals;
 
 namespace
@@ -91,3 +94,5 @@ const SomfyFrameHeader SOMFY_HEADER_REPEAT =
 	PULSES_SOMFY_HEADER_REPEAT,
 	sizeof(PULSES_SOMFY_HEADER_REPEAT)/sizeof(PULSES_SOMFY_HEADER_REPEAT[0])
 };
+
+} // namespace rts

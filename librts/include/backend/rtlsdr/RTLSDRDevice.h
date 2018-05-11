@@ -25,6 +25,9 @@
 
 #include <rtl-sdr.h>
 
+namespace rts
+{
+
 class RTLSDRDevice
 {
 public:
@@ -46,5 +49,7 @@ private:
 	rtlsdr_dev_t * m_device;
 	bool m_reading;
 };
+
+} // namespace rts
 
 #endif // RTLSDR_DEVICE_H

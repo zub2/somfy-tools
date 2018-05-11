@@ -22,6 +22,9 @@
 #include "Duration.h"
 #include <vector>
 
+namespace rts
+{
+
 class DurationBuffer
 {
 public:
@@ -55,5 +58,7 @@ public:
 private:
 	std::vector<Duration> m_buffer;
 };
+
+} // namespace rts
 
 #endif // DURATION_BUFFER_H

@@ -23,13 +23,16 @@
 
 #include <utility>
 
-/**
- * @brief A single transition between 0 and 1.
- *
- * The time_point is the time stamp of the transition
- * and the bool is the end value (e.g. a transition
- * from 0 to 1 contains the value true).
- */
-typedef std::pair<Clock::time_point, bool> Transition;
+namespace rts
+{
+	/**
+	 * @brief A single transition between 0 and 1.
+	 *
+	 * The time_point is the time stamp of the transition
+	 * and the bool is the end value (e.g. a transition
+	 * from 0 to 1 contains the value true).
+	 */
+	typedef std::pair<Clock::time_point, bool> Transition;
+}
 
 #endif // TRANSITION_H

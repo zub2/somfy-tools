@@ -51,7 +51,7 @@ namespace
 	void decodeSdrDev(uint32_t deviceIndex, double tolerance, const size_t bufferSize, const size_t bufferCount,
 		const std::string & logName)
 	{
-		RTLSDRDevice rtlSDRDevice(deviceIndex);
+		rts::RTLSDRDevice rtlSDRDevice(deviceIndex);
 
 		rtlSDRDevice.setSampleRate(RTLSDR_SAMPLE_RATE);
 		rtlSDRDevice.setFrequency(RTLSDR_FREQUENCY);
@@ -63,10 +63,10 @@ namespace
 			rtlSDRDevice.setTunerGain(*manualGain);
 		}
 
-		RTLSDRIQSource rtlSDRIQSource(rtlSDRDevice, bufferSize, bufferCount, logName);
-		OOKDecoder<RTLSDRIQSource> ookDecoder(rtlSDRIQSource, RTLSDR_SAMPLE_RATE);
-		DurationTracker<OOKDecoder<RTLSDRIQSource>> durationTracker(ookDecoder);
-		SomfyDecoder decoder(durationTracker, tolerance);
+		rts::RTLSDRIQSource rtlSDRIQSource(rtlSDRDevice, bufferSize, bufferCount, logName);
+		rts::OOKDecoder<rts::RTLSDRIQSource> ookDecoder(rtlSDRIQSource, RTLSDR_SAMPLE_RATE);
+		rts::DurationTracker<rts::OOKDecoder<rts::RTLSDRIQSource>> durationTracker(ookDecoder);
+		rts::SomfyDecoder decoder(durationTracker, tolerance);
 
 		rtlSDRIQSource.start();
 
@@ -85,9 +85,9 @@ namespace
 	void decodeIqLog(const std::string & iqLogFileName, double tolerance)
 	{
 		IQLogReader iqLogReader(iqLogFileName);
-		OOKDecoder<IQLogReader> ookDecoder(iqLogReader, RTLSDR_SAMPLE_RATE);
-		DurationTracker<OOKDecoder<IQLogReader>> durationTracker(ookDecoder);
-		SomfyDecoder decoder(durationTracker, tolerance);
+		rts::OOKDecoder<IQLogReader> ookDecoder(iqLogReader, RTLSDR_SAMPLE_RATE);
+		rts::DurationTracker<rts::OOKDecoder<IQLogReader>> durationTracker(ookDecoder);
+		rts::SomfyDecoder decoder(durationTracker, tolerance);
 
 		decoder.run();
 	}

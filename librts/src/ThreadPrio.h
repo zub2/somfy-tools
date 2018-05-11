@@ -21,6 +21,9 @@
 
 #include <thread>
 
-void setThreadSchedulerAndPrio(std::thread & thread, int schedAlgo);
+namespace rts
+{
+	void setThreadSchedulerAndPrio(std::thread & thread, int schedAlgo);
+}
 
 #endif // THREAD_PRIO_H

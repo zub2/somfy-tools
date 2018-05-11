@@ -21,6 +21,9 @@
 
 #include <sched.h>
 
+namespace rts
+{
+
 PlaybackThread::PlaybackThread(unsigned gpioNr):
 	m_gpioNr(gpioNr),
 	m_running(false),
@@ -99,3 +102,5 @@ void PlaybackThread::playbackLoop()
 		m_playbackFinishedCondVar.notify_all();
 	}
 }
+
+} // namespace rts

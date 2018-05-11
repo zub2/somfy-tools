@@ -34,11 +34,11 @@ namespace
 	constexpr size_t DEFAULT_BUFFER_SIZE = 1000;
 	constexpr double DEFAULT_TOLERANCE = 0.1;
 
-	void decodeFromGPIO(unsigned gpioNr, size_t bufferSize, const Clock::duration & samplePeriod, double tolerance)
+	void decodeFromGPIO(unsigned gpioNr, size_t bufferSize, const rts::Clock::duration & samplePeriod, double tolerance)
 	{
-		RecordingThread recorder(gpioNr, bufferSize, samplePeriod);
-		DurationTracker<RecordingThread> durationTracker(recorder);
-		SomfyDecoder decoder(durationTracker, tolerance);
+		rts::RecordingThread recorder(gpioNr, bufferSize, samplePeriod);
+		rts::DurationTracker<rts::RecordingThread> durationTracker(recorder);
+		rts::SomfyDecoder decoder(durationTracker, tolerance);
 
 		installSigIntHandler();
 
@@ -56,7 +56,7 @@ namespace
 	void decodeFromFile(const std::string & fileName, double tolerance)
 	{
 		GPIOLogReader reader(fileName);
-		SomfyDecoder decoder(reader, tolerance);
+		rts::SomfyDecoder decoder(reader, tolerance);
 
 		decoder.run();
 	}

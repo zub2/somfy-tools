@@ -41,11 +41,11 @@ namespace
 	constexpr unsigned DEFAULT_DURATION_S = 5;
 	constexpr size_t DEFAULT_BUFFER_SIZE = 1000;
 
-	void record(unsigned gpioNr, const Clock::duration & recordingDuration, size_t bufferSize,
-		const Clock::duration & samplePeriod, const std::string & outputFileName)
+	void record(unsigned gpioNr, const rts::Clock::duration & recordingDuration, size_t bufferSize,
+		const rts::Clock::duration & samplePeriod, const std::string & outputFileName)
 	{
 		GPIOLogWriter writer(outputFileName);
-		RecordingThread recorder(gpioNr, bufferSize, samplePeriod);
+		rts::RecordingThread recorder(gpioNr, bufferSize, samplePeriod);
 
 		std::cout << "Starting recording... " << std::flush;
 
@@ -57,8 +57,8 @@ namespace
 			recorder.stop();
 		});
 
-		DurationTracker<RecordingThread> durationTracker(recorder);
-		std::optional<Duration> duration = durationTracker.get();
+		rts::DurationTracker<rts::RecordingThread> durationTracker(recorder);
+		std::optional<rts::Duration> duration = durationTracker.get();
 		while (duration)
 		{
 			writer.write(*duration);

@@ -35,6 +35,9 @@
 #include "backend/rtlsdr/RTLSDRDevice.h"
 #include "RTLSDRBufferReader.h"
 
+namespace rts
+{
+
 class RTLSDRIQSource
 {
 public:
@@ -80,5 +83,7 @@ private:
 
 	std::ofstream m_log;
 };
+
+} // namespace rts
 
 #endif // RTLSDR_IQ_SOURCE

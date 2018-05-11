@@ -23,6 +23,9 @@
 #include <cstddef>
 #include <iostream>
 
+namespace rts
+{
+
 class FastGPIO
 {
 private:
@@ -53,5 +56,7 @@ public:
 private:
 	volatile uint32_t *m_gpioMem;
 };
+
+} // namespace rts
 
 #endif // FAST_GPIO_H

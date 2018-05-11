@@ -32,10 +32,10 @@ class DurationFileReader
 {
 public:
 	DurationFileReader(const std::string & f);
-	std::optional<Duration> get();
+	std::optional<rts::Duration> get();
 
 private:
-	std::optional<Duration> parseLine(const std::string & line);
+	std::optional<rts::Duration> parseLine(const std::string & line);
 	static bool parseBool(const std::string & s);
 
 	std::ifstream m_stream;

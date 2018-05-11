@@ -33,9 +33,9 @@ DurationFileReader::DurationFileReader(const std::string & f):
 		throw std::runtime_error(std::string("can't open ") + f);
 }
 
-std::optional<Duration> DurationFileReader::get()
+std::optional<rts::Duration> DurationFileReader::get()
 {
-	std::optional<Duration> d;
+	std::optional<rts::Duration> d;
 	std::string line;
 
 	while (!d && std::getline(m_stream, line))
@@ -52,7 +52,7 @@ std::optional<Duration> DurationFileReader::get()
 	return d;
 }
 
-std::optional<Duration> DurationFileReader::parseLine(const std::string & line)
+std::optional<rts::Duration> DurationFileReader::parseLine(const std::string & line)
 {
 	// skip comment - if any
 	std::string::size_type end = line.find('#');
@@ -76,13 +76,13 @@ std::optional<Duration> DurationFileReader::parseLine(const std::string & line)
 	const std::ssub_match & matchValue = match[2];
 
 	// duration in µs
-	const Clock::duration d =
+	const rts::Clock::duration d =
 			std::chrono::microseconds(boost::lexical_cast<std::chrono::microseconds::rep>(matchDuration));
 
 	// value
 	const bool v = parseBool(matchValue);
 
-	return Duration(d, v);
+	return rts::Duration(d, v);
 }
 
 bool DurationFileReader::parseBool(const std::string & s)

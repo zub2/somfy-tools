@@ -24,6 +24,9 @@
 #include <algorithm>
 #include <iterator>
 
+namespace rts
+{
+
 using namespace std::literals;
 
 static_assert(std::atomic<Transition*>::is_always_lock_free,
@@ -173,3 +176,5 @@ Transition * RecordingThread::advanceBufferPtr(Transition *ptr)
 
 	return ptr;
 }
+
+} // namespace rts

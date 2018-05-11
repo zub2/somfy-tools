@@ -22,6 +22,9 @@
 #include "Duration.h"
 #include "DurationBuffer.h"
 
+namespace rts
+{
+
 class ManchesterEncoder
 {
 public:
@@ -36,5 +39,7 @@ private:
 
 	static const Clock::duration HALF_SYMBOL_DURATION;
 };
+
+} // namespace rts
 
 #endif // MANCHESTER_ENCODER_H

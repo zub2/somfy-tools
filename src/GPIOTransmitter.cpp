@@ -28,16 +28,16 @@
 void play(unsigned gpioNr, const std::string &inputFile)
 {
 	DurationFileReader reader(inputFile);
-	DurationBuffer buffer;
+	rts::DurationBuffer buffer;
 
-	std::optional<Duration> d = reader.get();
+	std::optional<rts::Duration> d = reader.get();
 	while (d)
 	{
 		buffer << *d;
 		d = reader.get();
 	}
 
-	PlaybackThread playbackThread(gpioNr);
+	rts::PlaybackThread playbackThread(gpioNr);
 	playbackThread.start();
 	playbackThread.play(buffer.get());
 	playbackThread.stop();

@@ -23,6 +23,9 @@
 
 #include "Clock.h"
 
+namespace rts
+{
+
 using namespace std::literals;
 
 const Clock::duration ManchesterDecoder::LONG_SHORT_THRESHOLD = 962us;
@@ -68,3 +71,5 @@ bool ManchesterDecoder::newTransition(const Duration & duration)
 
 	return true;
 }
+
+} // namespace rts

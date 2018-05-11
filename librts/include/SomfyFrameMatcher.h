@@ -26,6 +26,9 @@
 #include "Duration.h"
 #include "SomfyFrameType.h"
 
+namespace rts
+{
+
 class SomfyFrameMatcher
 {
 public:
@@ -73,5 +76,7 @@ private:
 
 	const double m_tolerance;
 };
+
+} // namespace rts
 
 #endif // SOMFY_FRAME_MATCHER

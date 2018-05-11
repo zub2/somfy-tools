@@ -23,9 +23,12 @@
 
 #include <utility>
 
-/**
- * @brief A duration during which signal stayed at the given level.
- */
-typedef std::pair<Clock::duration, bool> Duration;
+namespace rts
+{
+	/**
+	 * @brief A duration during which signal stayed at the given level.
+	 */
+	typedef std::pair<Clock::duration, bool> Duration;
+}
 
 #endif // DURATION_H

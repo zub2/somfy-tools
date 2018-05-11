@@ -25,6 +25,9 @@
 #include <utility>
 #include <vector>
 
+namespace rts
+{
+
 class ManchesterDecoder
 {
 public:
@@ -61,5 +64,6 @@ private:
 	std::vector<bool> m_bits;
 };
 
+} // namespace rts
 
 #endif // MANCHESTER_DECODER_H

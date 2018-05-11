@@ -33,6 +33,9 @@
 
 #include <boost/circular_buffer.hpp>
 
+namespace rts
+{
+
 class RecordingThread
 {
 public:
@@ -67,5 +70,7 @@ private:
 	std::atomic<bool> m_stop;
 	std::condition_variable m_runningCondVar;
 };
+
+} // namespace rts
 
 #endif // RECORDING_THREAD_H

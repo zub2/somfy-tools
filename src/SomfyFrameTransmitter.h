@@ -34,17 +34,17 @@ public:
 	SomfyFrameTransmitter(unsigned gpioNr, bool verbose = false, bool dryRun = false, const std::string & debugLog = std::string());
 	~SomfyFrameTransmitter();
 
-	void send(const SomfyFrame & frame, size_t repeatFrameCount);
+	void send(const rts::SomfyFrame & frame, size_t repeatFrameCount);
 
 private:
-	void appendFrame(DurationBuffer & buffer, SomfyFrameType frameType, const std::vector<Duration> & frameSamples);
-	std::vector<Duration> getEncodedFramePayload(const SomfyFrame & frame);
+	void appendFrame(rts::DurationBuffer & buffer, rts::SomfyFrameType frameType, const std::vector<rts::Duration> & frameSamples);
+	std::vector<rts::Duration> getEncodedFramePayload(const rts::SomfyFrame & frame);
 
 	bool m_verbose;
-	std::optional<PlaybackThread> m_playbackThread;
+	std::optional<rts::PlaybackThread> m_playbackThread;
 	std::optional<GPIOLogWriter> m_debugLogWriter;
 
-	static const Duration INTER_FRAME_GAP;
+	static const rts::Duration INTER_FRAME_GAP;
 };
 
 #endif // SOMFY_FRAME_TRANSMITTER_H

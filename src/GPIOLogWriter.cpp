@@ -33,7 +33,7 @@ GPIOLogWriter::~GPIOLogWriter()
 		writeDuration(m_lastDuration->first);
 }
 
-void GPIOLogWriter::write(const Duration & duration)
+void GPIOLogWriter::write(const rts::Duration & duration)
 {
 	if (!m_lastDuration)
 	{
@@ -61,7 +61,7 @@ void GPIOLogWriter::writeUint64(uint64_t value)
 		throw std::runtime_error("can't write to output file");
 }
 
-void GPIOLogWriter::writeDuration(const Clock::duration & d)
+void GPIOLogWriter::writeDuration(const rts::Clock::duration & d)
 {
 	writeUint64(std::chrono::duration_cast<std::chrono::microseconds>(d).count());
 }

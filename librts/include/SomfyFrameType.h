@@ -19,10 +19,13 @@
 #ifndef SOMFY_FRAME_TYPE_H
 #define SOMFY_FRAME_TYPE_H
 
-enum class SomfyFrameType
+namespace rts
 {
-	normal,
-	repeat
-};
+	enum class SomfyFrameType
+	{
+		normal,
+		repeat
+	};
+}
 
 #endif // SOMFY_FRAME_TYPE_H

@@ -30,6 +30,9 @@
 #include "SomfyFrameType.h"
 #include "SomfyFrame.h"
 
+namespace rts
+{
+
 template<typename Source>
 class SomfyDecoder
 {
@@ -245,5 +248,7 @@ private:
 	Source & m_source;
 	const double m_tolerance;
 };
+
+} // namespace rts
 
 #endif // SOMFY_DECODER_H
