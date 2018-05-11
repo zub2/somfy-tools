@@ -28,6 +28,7 @@
 #include "Duration.h"
 
 using namespace std::literals;
+using namespace rts;
 
 namespace
 {

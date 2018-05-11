@@ -26,6 +26,8 @@
 
 #include "SomfyFrame.h"
 
+using namespace rts;
+
 namespace
 {
 	const std::vector<uint8_t> TEST_FRAME = {
@@ -38,43 +40,46 @@ namespace
 	const uint32_t TEST_FRAME_ADDRESS = 0x336945;
 }
 
-std::ostream & operator<< (std::ostream & os, SomfyFrame::Action action)
+namespace rts
 {
-	typedef SomfyFrame::Action Action;
-	switch (action)
+	std::ostream & operator<< (std::ostream & os, SomfyFrame::Action action)
 	{
-	case Action::my:
-		os << "my";
-		break;
-	case Action::up:
-		os << "up";
-		break;
-	case Action::my_up:
-		os << "my_up";
-		break;
-	case Action::down:
-		os << "down";
-		break;
-	case Action::my_down:
-		os << "my_down";
-		break;
-	case Action::up_down:
-		os << "up_down";
-		break;
-	case Action::prog:
-		os << "prog";
-		break;
-	case Action::sun_flag:
-		os << "sun_flag";
-		break;
-	case Action::flag:
-		os << "flag";
-		break;
-	default:
-		os << "UNKNOWN[" << static_cast<uint16_t>(action) << "]";
-		break;
+		typedef SomfyFrame::Action Action;
+		switch (action)
+		{
+		case Action::my:
+			os << "my";
+			break;
+		case Action::up:
+			os << "up";
+			break;
+		case Action::my_up:
+			os << "my_up";
+			break;
+		case Action::down:
+			os << "down";
+			break;
+		case Action::my_down:
+			os << "my_down";
+			break;
+		case Action::up_down:
+			os << "up_down";
+			break;
+		case Action::prog:
+			os << "prog";
+			break;
+		case Action::sun_flag:
+			os << "sun_flag";
+			break;
+		case Action::flag:
+			os << "flag";
+			break;
+		default:
+			os << "UNKNOWN[" << static_cast<uint16_t>(action) << "]";
+			break;
+		}
+		return os;
 	}
-	return os;
 }
 
 BOOST_AUTO_TEST_CASE(TestSomfyFrame_decode)

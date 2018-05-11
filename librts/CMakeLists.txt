@@ -54,3 +54,5 @@ endif()
 
 install(TARGETS rts ARCHIVE DESTINATION lib)
 install(FILES ${RTS_PUBLIC_HEADERS} DESTINATION include/rts)
+
+add_subdirectory(test)

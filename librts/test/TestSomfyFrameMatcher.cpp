@@ -34,6 +34,7 @@
 #include "TestUtils.h"
 
 using namespace std::literals;
+using namespace rts;
 
 namespace
 {
@@ -98,24 +99,27 @@ namespace
 	};
 }
 
-std::ostream & operator<< (std::ostream & os, SomfyFrameType frameType)
+namespace rts
 {
-	switch (frameType)
+	std::ostream & operator<< (std::ostream & os, SomfyFrameType frameType)
 	{
-	case SomfyFrameType::normal:
-		os << "normal";
-		break;
+		switch (frameType)
+		{
+		case SomfyFrameType::normal:
+			os << "normal";
+			break;
 
-	case SomfyFrameType::repeat:
-		os << "repeat";
-		break;
+		case SomfyFrameType::repeat:
+			os << "repeat";
+			break;
 
-	default:
-		os << "[UNKNOWN]";
-		break;
+		default:
+			os << "[UNKNOWN]";
+			break;
+		}
+
+		return os;
 	}
-
-	return os;
 }
 
 void testMatch(const std::vector<Duration> & inputSequence, double tolerance,

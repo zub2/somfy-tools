@@ -18,4 +18,3 @@ SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -flto")
 
 add_subdirectory(librts)
 add_subdirectory(src)
-#add_subdirectory(test)

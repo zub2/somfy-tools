@@ -26,7 +26,7 @@
 
 namespace std
 {
-inline ostream & operator<<(ostream & os, const Clock::duration & d)
+inline ostream & operator<<(ostream & os, const rts::Clock::duration & d)
 {
 	os << std::chrono::duration_cast<std::chrono::microseconds>(d).count() << "µs";
 	return os;
