@@ -17,10 +17,10 @@
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "SigIntHandler.h"
-#include "Clock.h"
-#include "backend/rpi-gpio/RecordingThread.h"
-#include "DurationTracker.h"
-#include "SomfyDecoder.h"
+#include "rts/Clock.h"
+#include "rts/backend/rpi-gpio/RecordingThread.h"
+#include "rts/DurationTracker.h"
+#include "rts/SomfyDecoder.h"
 #include "GPIOLogReader.h"
 
 #include <iostream>

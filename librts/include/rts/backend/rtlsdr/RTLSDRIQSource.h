@@ -32,7 +32,7 @@
 
 #include <boost/circular_buffer.hpp>
 
-#include "backend/rtlsdr/RTLSDRDevice.h"
+#include "RTLSDRDevice.h"
 #include "RTLSDRBufferReader.h"
 
 namespace rts

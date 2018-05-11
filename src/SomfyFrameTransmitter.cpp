@@ -17,8 +17,8 @@
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "SomfyFrameTransmitter.h"
-#include "SomfyFrameHeader.h"
-#include "ManchesterEncoder.h"
+#include "rts/SomfyFrameHeader.h"
+#include "rts/ManchesterEncoder.h"
 
 #include <cassert>
 #include <chrono>

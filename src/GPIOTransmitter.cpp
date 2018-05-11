@@ -17,8 +17,8 @@
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "DurationFileReader.h"
-#include "DurationBuffer.h"
-#include "backend/rpi-gpio/PlaybackThread.h"
+#include "rts/DurationBuffer.h"
+#include "rts/backend/rpi-gpio/PlaybackThread.h"
 
 #include <iostream>
 

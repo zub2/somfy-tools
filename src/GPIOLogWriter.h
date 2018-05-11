@@ -25,7 +25,7 @@
 #include <cstdint>
 #include <optional>
 
-#include "Duration.h"
+#include "rts/Duration.h"
 
 class GPIOLogWriter
 {

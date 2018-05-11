@@ -18,15 +18,15 @@
  */
 #ifdef HAVE_RTLSDR
 	#include "SigIntHandler.h"
-	#include "backend/rtlsdr/RTLSDRDevice.h"
-	#include "backend/rtlsdr/RTLSDRBufferReader.h"
-	#include "backend/rtlsdr/RTLSDRIQSource.h"
+	#include "rts/backend/rtlsdr/RTLSDRDevice.h"
+	#include "rts/backend/rtlsdr/RTLSDRBufferReader.h"
+	#include "rts/backend/rtlsdr/RTLSDRIQSource.h"
 #endif // HAVE_RTLSDR
 
 #include "IQLogReader.h"
-#include "DurationTracker.h"
-#include "SomfyDecoder.h"
-#include "backend/rtlsdr/OOKDecoder.h"
+#include "rts/DurationTracker.h"
+#include "rts/SomfyDecoder.h"
+#include "rts/backend/rtlsdr/OOKDecoder.h"
 
 #include <iostream>
 #include <stdexcept>

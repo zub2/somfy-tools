@@ -19,7 +19,7 @@
 #ifndef DURATION_FILE_READER_H
 #define DURATION_FILE_READER_H
 
-#include "Duration.h"
+#include "rts/Duration.h"
 
 #include <string>
 #include <fstream>

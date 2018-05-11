@@ -16,11 +16,11 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "Clock.h"
-#include "Transition.h"
+#include "rts/Clock.h"
+#include "rts/Transition.h"
+#include "rts/backend/rpi-gpio/RecordingThread.h"
+#include "rts/DurationTracker.h"
 #include "GPIOLogWriter.h"
-#include "backend/rpi-gpio/RecordingThread.h"
-#include "DurationTracker.h"
 
 #include <iostream>
 #include <fstream>

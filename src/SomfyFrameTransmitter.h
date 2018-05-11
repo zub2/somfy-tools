@@ -19,11 +19,11 @@
 #ifndef SOMFY_FRAME_TRANSMITTER_H
 #define SOMFY_FRAME_TRANSMITTER_H
 
-#include "SomfyFrame.h"
-#include "SomfyFrameType.h"
-#include "backend/rpi-gpio/PlaybackThread.h"
+#include "rts/SomfyFrame.h"
+#include "rts/SomfyFrameType.h"
+#include "rts/backend/rpi-gpio/PlaybackThread.h"
+#include "rts/DurationBuffer.h"
 #include "GPIOLogWriter.h"
-#include "DurationBuffer.h"
 
 #include <string>
 #include <optional>

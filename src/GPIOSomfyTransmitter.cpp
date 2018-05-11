@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "SomfyFrame.h"
+#include "rts/SomfyFrame.h"
 #include "SomfyFrameTransmitter.h"
 
 #include <iostream>

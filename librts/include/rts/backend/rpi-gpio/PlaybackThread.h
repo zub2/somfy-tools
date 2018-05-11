@@ -19,9 +19,9 @@
 #ifndef PLAYBACK_THREAD_H
 #define PLAYBACK_THREAD_H
 
-#include "Clock.h"
-#include "Duration.h"
-#include "backend/rpi-gpio/FastGPIO.h"
+#include "../../Clock.h"
+#include "../../Duration.h"
+#include "FastGPIO.h"
 
 #include <utility>
 #include <thread>

@@ -20,8 +20,8 @@
 #define RECORDING_THREAD_H
 
 #include "FastGPIO.h"
-#include "Clock.h"
-#include "Transition.h"
+#include "../../Clock.h"
+#include "../../Transition.h"
 
 #include <thread>
 #include <mutex>

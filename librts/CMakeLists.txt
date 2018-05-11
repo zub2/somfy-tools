@@ -1,21 +1,21 @@
 set(RTS_PUBLIC_HEADERS
-	include/Clock.h
-	include/Duration.h
-	include/DurationBuffer.h
-	include/DurationTracker.h
-	include/Transition.h
-	include/SomfyFrame.h
-	include/SomfyFrameType.h
-	include/SomfyDecoder.h
-	include/ManchesterDecoder.h
-	include/SomfyFrameMatcher.h
-	include/backend/rpi-gpio/RecordingThread.h
-	include/backend/rpi-gpio/PlaybackThread.h
-	include/backend/rpi-gpio/FastGPIO.h
-	include/backend/rtlsdr/Filter.h
-	include/backend/rtlsdr/OOKDecoder.h
-	include/SomfyFrameHeader.h
-	include/ManchesterEncoder.h
+	include/rts/Clock.h
+	include/rts/Duration.h
+	include/rts/DurationBuffer.h
+	include/rts/DurationTracker.h
+	include/rts/Transition.h
+	include/rts/SomfyFrame.h
+	include/rts/SomfyFrameType.h
+	include/rts/SomfyDecoder.h
+	include/rts/ManchesterDecoder.h
+	include/rts/SomfyFrameMatcher.h
+	include/rts/backend/rpi-gpio/RecordingThread.h
+	include/rts/backend/rpi-gpio/PlaybackThread.h
+	include/rts/backend/rpi-gpio/FastGPIO.h
+	include/rts/backend/rtlsdr/Filter.h
+	include/rts/backend/rtlsdr/OOKDecoder.h
+	include/rts/SomfyFrameHeader.h
+	include/rts/ManchesterEncoder.h
 )
 
 set(RTS_SOURCES
@@ -34,9 +34,9 @@ set(RTS_SOURCES
 # only include rtlsdr functionality if librtlsdr is available
 if (RTLSDR_FOUND)
 	list(APPEND RTS_PUBLIC_HEADERS
-		include/backend/rtlsdr/RTLSDRDevice.h
-		include/backend/rtlsdr/RTLSDRBufferReader.h
-		include/backend/rtlsdr/RTLSDRIQSource.h
+		include/rts/backend/rtlsdr/RTLSDRDevice.h
+		include/rts/backend/rtlsdr/RTLSDRBufferReader.h
+		include/rts/backend/rtlsdr/RTLSDRIQSource.h
 	)
 	list(APPEND RTS_SOURCES
 		src/backend/rtlsdr/RTLSDRDevice.cpp
@@ -45,7 +45,7 @@ if (RTLSDR_FOUND)
 endif()
 
 add_library(rts STATIC ${RTS_SOURCES} ${RTS_PUBLIC_HEADERS})
-target_include_directories(rts PUBLIC include ${Boost_INCLUDE_DIRS} ${RTLSDR_INCLUDE_DIRS})
+target_include_directories(rts PUBLIC include ${Boost_INCLUDE_DIRS} ${RTLSDR_INCLUDE_DIRS} PRIVATE include/rts)
 target_link_libraries(rts ${Boost_LIBRARIES} ${RTLSDR_LIBRARIES})
 
 if (RTLSDR_FOUND)
