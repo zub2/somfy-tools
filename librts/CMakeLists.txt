@@ -1,3 +1,7 @@
+find_package(Boost REQUIRED COMPONENTS unit_test_framework)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(RTLSDR librtlsdr)
+
 set(RTS_PUBLIC_HEADERS
 	include/rts/Clock.h
 	include/rts/Duration.h
@@ -46,7 +50,7 @@ endif()
 
 add_library(rts STATIC ${RTS_SOURCES} ${RTS_PUBLIC_HEADERS})
 target_include_directories(rts PUBLIC include ${Boost_INCLUDE_DIRS} ${RTLSDR_INCLUDE_DIRS} PRIVATE include/rts)
-target_link_libraries(rts ${Boost_LIBRARIES} ${RTLSDR_LIBRARIES})
+target_link_libraries(rts ${RTLSDR_LIBRARIES})
 
 if (RTLSDR_FOUND)
 	target_compile_definitions(rts PUBLIC HAVE_RTLSDR)

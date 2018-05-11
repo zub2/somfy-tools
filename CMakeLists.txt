@@ -6,9 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 enable_testing()
 
-find_package(Boost REQUIRED COMPONENTS program_options unit_test_framework)
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(RTLSDR librtlsdr)
+find_package(Boost REQUIRED COMPONENTS program_options)
 
 # https://gcc.gnu.org/ml/gcc/2017-05/msg00073.html
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-psabi -pthread ${RTLSDR_CFLAGS_OTHER}")

@@ -4,7 +4,7 @@ add_executable(gpio-logger
 	GPIOLogger.cpp
 )
 target_include_directories(gpio-logger PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(gpio-logger rts ${Boost_LIBRARIES})
+target_link_libraries(gpio-logger rts ${Boost_PROGRAM_OPTIONS_LIBRARY})
 
 add_executable(gpio-somfy-decoder
 	SigIntHandler.cpp
@@ -14,7 +14,7 @@ add_executable(gpio-somfy-decoder
 	GPIOSomfyDecoder.cpp
 )
 target_include_directories(gpio-somfy-decoder PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(gpio-somfy-decoder rts ${Boost_LIBRARIES})
+target_link_libraries(gpio-somfy-decoder rts ${Boost_PROGRAM_OPTIONS_LIBRARY})
 
 set(SDR_SOMFY_DECODER_SOURCES
 	IQLogReader.cpp
@@ -31,7 +31,7 @@ endif()
 
 add_executable(sdr-somfy-decoder ${SDR_SOMFY_DECODER_SOURCES})
 target_include_directories(sdr-somfy-decoder PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(sdr-somfy-decoder rts ${Boost_LIBRARIES})
+target_link_libraries(sdr-somfy-decoder rts ${Boost_PROGRAM_OPTIONS_LIBRARY})
 
 add_executable(gpio-transmitter
 	DurationFileReader.cpp
@@ -39,7 +39,7 @@ add_executable(gpio-transmitter
 	GPIOTransmitter.cpp
 )
 target_include_directories(gpio-transmitter PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(gpio-transmitter rts ${Boost_LIBRARIES})
+target_link_libraries(gpio-transmitter rts ${Boost_PROGRAM_OPTIONS_LIBRARY})
 
 add_executable(gpio-somfy-transmitter
 	SomfyFrameTransmitter.cpp
@@ -49,7 +49,7 @@ add_executable(gpio-somfy-transmitter
 	GPIOSomfyTransmitter.cpp
 )
 target_include_directories(gpio-somfy-transmitter PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(gpio-somfy-transmitter rts ${Boost_LIBRARIES})
+target_link_libraries(gpio-somfy-transmitter rts ${Boost_PROGRAM_OPTIONS_LIBRARY})
 
 install(TARGETS
 	gpio-logger
