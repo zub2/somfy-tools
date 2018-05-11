@@ -26,7 +26,6 @@
 #include "Duration.h"
 #include "ManchesterDecoder.h"
 #include "ManchesterEncoder.h"
-#include "PlaybackThread.h"
 #include "TestUtils.h"
 
 using namespace std::literals;
