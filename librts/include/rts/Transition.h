@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef TRANSITION_H
-#define TRANSITION_H
+#ifndef RTS_TRANSITION_H
+#define RTS_TRANSITION_H
 
 #include "Clock.h"
 
@@ -35,4 +35,4 @@ namespace rts
 	typedef std::pair<Clock::time_point, bool> Transition;
 }
 
-#endif // TRANSITION_H
+#endif // RTS_TRANSITION_H

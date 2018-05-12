@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef PLAYBACK_THREAD_H
-#define PLAYBACK_THREAD_H
+#ifndef RTS_PLAYBACK_THREAD_H
+#define RTS_PLAYBACK_THREAD_H
 
 #include "../../Clock.h"
 #include "../../Duration.h"
@@ -61,4 +61,4 @@ private:
 
 } // namespace rts
 
-#endif // PLAYBACK_THREAD_H
+#endif // RTS_PLAYBACK_THREAD_H

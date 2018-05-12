@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef DURATION_H
-#define DURATION_H
+#ifndef RTS_DURATION_H
+#define RTS_DURATION_H
 
 #include "Clock.h"
 
@@ -31,4 +31,4 @@ namespace rts
 	typedef std::pair<Clock::duration, bool> Duration;
 }
 
-#endif // DURATION_H
+#endif // RTS_DURATION_H

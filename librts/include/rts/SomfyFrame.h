@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef SOMFY_FRAME_H
-#define SOMFY_FRAME_H
+#ifndef RTS_SOMFY_FRAME_H
+#define RTS_SOMFY_FRAME_H
 
 #include <cstdint>
 #include <climits>
@@ -110,4 +110,4 @@ private:
 
 } // namespace rts
 
-#endif // SOMFY_FRAME_H
+#endif // RTS_SOMFY_FRAME_H

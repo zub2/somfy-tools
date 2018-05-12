@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef THREAD_PRIO_H
-#define THREAD_PRIO_H
+#ifndef RTS_THREAD_PRIO_H
+#define RTS_THREAD_PRIO_H
 
 #include <thread>
 
@@ -26,4 +26,4 @@ namespace rts
 	void setThreadSchedulerAndPrio(std::thread & thread, int schedAlgo);
 }
 
-#endif // THREAD_PRIO_H
+#endif // RTS_THREAD_PRIO_H

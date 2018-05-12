@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef SOMFY_FRAME_HEADER_H
-#define SOMFY_FRAME_HEADER_H
+#ifndef RTS_SOMFY_FRAME_HEADER_H
+#define RTS_SOMFY_FRAME_HEADER_H
 
 #include "Clock.h"
 #include "Duration.h"
@@ -36,4 +36,4 @@ extern const SomfyFrameHeader SOMFY_HEADER_REPEAT;
 
 } // namespace rts
 
-#endif // SOMFY_FRAME_HEADER_H
+#endif // RTS_SOMFY_FRAME_HEADER_H

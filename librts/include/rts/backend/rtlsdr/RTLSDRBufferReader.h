@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef RTLSDR_BUFFER_READER_H
-#define RTLSDR_BUFFER_READER_H
+#ifndef RTS_RTLSDR_BUFFER_READER_H
+#define RTS_RTLSDR_BUFFER_READER_H
 
 #include <complex>
 
@@ -75,4 +75,4 @@ private:
 
 } // namespace rts
 
-#endif // RTLSDR_BUFFER_READER_H
+#endif // RTS_RTLSDR_BUFFER_READER_H

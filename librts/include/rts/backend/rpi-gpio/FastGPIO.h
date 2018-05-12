@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef FAST_GPIO_H
-#define FAST_GPIO_H
+#ifndef RTS_FAST_GPIO_H
+#define RTS_FAST_GPIO_H
 
 #include <cstdint>
 #include <cstddef>
@@ -59,4 +59,4 @@ private:
 
 } // namespace rts
 
-#endif // FAST_GPIO_H
+#endif // RTS_FAST_GPIO_H

@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef CLOCK_H
-#define CLOCK_H
+#ifndef RTS_CLOCK_H
+#define RTS_CLOCK_H
 
 #include <chrono>
 
@@ -26,4 +26,4 @@ namespace rts
 	typedef std::chrono::high_resolution_clock Clock;
 }
 
-#endif // CLOCK_H
+#endif // RTS_CLOCK_H

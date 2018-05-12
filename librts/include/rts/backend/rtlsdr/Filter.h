@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef FILTER_H
-#define FILTER_H
+#ifndef RTS_FILTER_H
+#define RTS_FILTER_H
 
 #include <vector>
 #include <stdexcept>
@@ -91,4 +91,4 @@ private:
 
 } // namespace rts
 
-#endif // FILTER_H
+#endif // RTS_FILTER_H

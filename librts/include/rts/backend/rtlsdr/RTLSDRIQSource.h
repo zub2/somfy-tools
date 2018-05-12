@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef RTLSDR_IQ_SOURCE
-#define RTLSDR_IQ_SOURCE
+#ifndef RTS_RTLSDR_IQ_SOURCE
+#define RTS_RTLSDR_IQ_SOURCE
 
 #include <cstdint>
 #include <thread>
@@ -86,4 +86,4 @@ private:
 
 } // namespace rts
 
-#endif // RTLSDR_IQ_SOURCE
+#endif // RTS_RTLSDR_IQ_SOURCE

@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef SOMFY_DECODER_H
-#define SOMFY_DECODER_H
+#ifndef RTS_SOMFY_DECODER_H
+#define RTS_SOMFY_DECODER_H
 
 #include <iostream>
 #include <iomanip>
@@ -251,4 +251,4 @@ private:
 
 } // namespace rts
 
-#endif // SOMFY_DECODER_H
+#endif // RTS_SOMFY_DECODER_H

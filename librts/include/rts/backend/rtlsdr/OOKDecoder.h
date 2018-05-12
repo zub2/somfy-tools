@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef OOK_DECODER_H
-#define OOK_DECODER_H
+#ifndef RTS_OOK_DECODER_H
+#define RTS_OOK_DECODER_H
 
 #include <optional>
 #include <cstddef>
@@ -136,4 +136,4 @@ private:
 
 } // namespace rts
 
-#endif // OOK_DECODER_H
+#endif // RTS_OOK_DECODER_H

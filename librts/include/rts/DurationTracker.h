@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef DURATION_TRACKER_H
-#define DURATION_TRACKER_H
+#ifndef RTS_DURATION_TRACKER_H
+#define RTS_DURATION_TRACKER_H
 
 #include <optional>
 
@@ -62,4 +62,4 @@ private:
 
 } // namespace rts
 
-#endif // DURATION_TRACKER_H
+#endif // RTS_DURATION_TRACKER_H

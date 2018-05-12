@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef SOMFY_FRAME_MATCHER
-#define SOMFY_FRAME_MATCHER
+#ifndef RTS_SOMFY_FRAME_MATCHER
+#define RTS_SOMFY_FRAME_MATCHER
 
 #include <optional>
 #include <cstddef>
@@ -79,4 +79,4 @@ private:
 
 } // namespace rts
 
-#endif // SOMFY_FRAME_MATCHER
+#endif // RTS_SOMFY_FRAME_MATCHER

@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef RECORDING_THREAD_H
-#define RECORDING_THREAD_H
+#ifndef RTS_RECORDING_THREAD_H
+#define RTS_RECORDING_THREAD_H
 
 #include "FastGPIO.h"
 #include "../../Clock.h"
@@ -73,4 +73,4 @@ private:
 
 } // namespace rts
 
-#endif // RECORDING_THREAD_H
+#endif // RTS_RECORDING_THREAD_H

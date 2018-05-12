@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef DURATION_BUFFER_H
-#define DURATION_BUFFER_H
+#ifndef RTS_DURATION_BUFFER_H
+#define RTS_DURATION_BUFFER_H
 
 #include "Duration.h"
 #include <vector>
@@ -61,4 +61,4 @@ private:
 
 } // namespace rts
 
-#endif // DURATION_BUFFER_H
+#endif // RTS_DURATION_BUFFER_H

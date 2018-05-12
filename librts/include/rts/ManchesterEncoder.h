@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef MANCHESTER_ENCODER_H
-#define MANCHESTER_ENCODER_H
+#ifndef RTS_MANCHESTER_ENCODER_H
+#define RTS_MANCHESTER_ENCODER_H
 
 #include "Duration.h"
 #include "DurationBuffer.h"
@@ -42,4 +42,4 @@ private:
 
 } // namespace rts
 
-#endif // MANCHESTER_ENCODER_H
+#endif // RTS_MANCHESTER_ENCODER_H
