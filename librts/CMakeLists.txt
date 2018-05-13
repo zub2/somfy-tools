@@ -54,7 +54,7 @@ if (RTLSDR_FOUND)
 endif()
 
 add_library(rts STATIC ${RTS_SOURCES} ${RTS_PUBLIC_HEADERS})
-target_include_directories(rts PUBLIC include ${Boost_INCLUDE_DIRS} ${RTLSDR_INCLUDE_DIRS} PRIVATE include/rts)
+target_include_directories(rts PUBLIC include ${Boost_INCLUDE_DIRS} PRIVATE include/rts)
 target_link_libraries(rts ${RTLSDR_LIBRARIES})
 
 if (RTLSDR_FOUND)
