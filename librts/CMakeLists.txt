@@ -3,6 +3,8 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(RTLSDR librtlsdr)
 
 set(RTS_PUBLIC_HEADERS
+	include/rts/FrameTransmitterFactory.h
+	include/rts/IFrameTransmitter.h
 	include/rts/Clock.h
 	include/rts/Duration.h
 	include/rts/DurationBuffer.h
@@ -26,6 +28,9 @@ set(RTS_SOURCES
 	src/backend/rpi-gpio/FastGPIO.cpp
 	src/backend/rpi-gpio/PlaybackThread.cpp
 	src/backend/rpi-gpio/RecordingThread.cpp
+	src/backend/rpi-gpio/GPIOFrameTransmitter.cpp
+	src/backend/rpi-gpio/GPIOFrameTransmitter.h
+	src/FrameTransmitterFactory.cpp
 	src/ManchesterDecoder.cpp
 	src/ManchesterEncoder.cpp
 	src/SomfyFrame.cpp
