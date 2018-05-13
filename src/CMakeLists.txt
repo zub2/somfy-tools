@@ -42,8 +42,6 @@ target_include_directories(gpio-transmitter PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(gpio-transmitter rts ${Boost_PROGRAM_OPTIONS_LIBRARY})
 
 add_executable(gpio-somfy-transmitter
-	SomfyFrameTransmitter.cpp
-	SomfyFrameTransmitter.h
 	GPIOLogWriter.cpp
 	GPIOLogWriter.h
 	GPIOSomfyTransmitter.cpp

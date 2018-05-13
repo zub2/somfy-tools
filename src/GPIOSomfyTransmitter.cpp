@@ -16,19 +16,20 @@
  * You should have received a copy of the GNU General Public License
  * along with somfy-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "rts/SomfyFrame.h"
-#include "SomfyFrameTransmitter.h"
-
+#include <memory>
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <iterator>
 #include <type_traits>
-#include <sstream>
 #include <limits>
+
+#include "rts/SomfyFrame.h"
+#include "rts/IFrameTransmitter.h"
+#include "rts/FrameTransmitterFactory.h"
 
 #include <boost/program_options.hpp>
 #include <boost/any.hpp>
+
+#include "GPIOLogWriter.h"
 
 using namespace std::literals;
 
@@ -41,11 +42,32 @@ namespace
 	{
 		if (verbose)
 			std::cout << "Will transmit using GPIO #" << gpioNr << std::endl;
-		SomfyFrameTransmitter transmitter(gpioNr, verbose, dryRun, logFile);
+
+		std::function<void(const std::string &)> debugLogger;
+		if (verbose)
+			debugLogger = [](const std::string & message) { std::cout << message << std::endl; };
+
+		std::function<void(const std::vector<rts::Duration>&)> durationLogger;
+		std::unique_ptr<GPIOLogWriter> gpioLogWriter;
+		if (!logFile.empty())
+		{
+			gpioLogWriter.reset(new GPIOLogWriter(logFile));
+			durationLogger = [&gpioLogWriter](const std::vector<rts::Duration> & durations) {
+				for (const rts::Duration & duration : durations)
+					gpioLogWriter->write(duration);
+			};
+		}
+
+		std::shared_ptr<rts::IFrameTransmitter> transmitter = rts::FrameTransmitterFactory::create({
+			gpioNr,
+			dryRun,
+			std::move(debugLogger),
+			std::move(durationLogger)
+		});
 
 		// send 1 normal and 1 repeat frame
 		const rts::SomfyFrame frame(key, ctrl, rollingCode, address);
-		transmitter.send(frame, nRepeatFrames);
+		transmitter->send(frame, nRepeatFrames);
 	}
 
 	const std::map<std::string, rts::SomfyFrame::Action> ACTION_NAMES =
