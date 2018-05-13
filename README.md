@@ -8,7 +8,7 @@ The code is based on the description available at the [Pushstack blog](https://p
 
 ## Compiling
 
-CMake, a C++ compiler supporting C++ 17 (e.g. gcc 6.4) and the [boost](http://boost.org/) libraries are required. To build the complete `sdr-somfy-decoder`, [rtl_sdr](https://osmocom.org/projects/sdr/wiki/rtl-sdr) is needed too. (Without rtl_sdr only a version that can decode an IQ log (analytic signal) is built.)
+Either CMake or [meson](http://mesonbuild.com/), a C++ compiler supporting C++ 17 (e.g. gcc 6.4) and the [boost](http://boost.org/) libraries are required. To build the complete `sdr-somfy-decoder`, [rtl_sdr](https://osmocom.org/projects/sdr/wiki/rtl-sdr) is needed too. (Without rtl_sdr only a version that can decode an IQ log (analytic signal) is built.)
 
 ## Tools
 
