@@ -29,8 +29,8 @@ RTLSDRIQSource::RTLSDRIQSource(RTLSDRDevice & rtlSdrDevice, size_t bufferSize, s
 	m_rtlSDRDevice(rtlSdrDevice),
 	m_freeBuffers(bufferCount),
 	m_recordedBuffers(bufferCount),
-	m_readOffset(0),
-	m_running(false)
+	m_running(false),
+	m_readOffset(0)
 {
 	for (size_t i = 0; i < m_freeBuffers.size(); i++)
 		m_freeBuffers[i].reset(new TBuffer(bufferSize));

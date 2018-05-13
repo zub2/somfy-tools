@@ -71,10 +71,10 @@ private:
 		size_t m_matchedCount;
 	};
 
+	const double m_tolerance;
+
 	SequenceMatcher m_matcherNormal;
 	SequenceMatcher m_matcherRepeat;
-
-	const double m_tolerance;
 };
 
 } // namespace rts

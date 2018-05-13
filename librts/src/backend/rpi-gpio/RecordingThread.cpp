@@ -40,9 +40,9 @@ namespace
 RecordingThread::RecordingThread(unsigned gpioNr, size_t bufferSize, const Clock::duration & samplePeriod):
 	m_gpioNr(gpioNr),
 	m_samplePeriod(samplePeriod),
+	m_readBuffer(bufferSize),
 	// +1 to account for the fact that there's always at least 1 free element in between to differentiate empty and full
 	m_buffer(bufferSize + 1),
-	m_readBuffer(bufferSize),
 	m_running(false),
 	m_stop(false)
 {

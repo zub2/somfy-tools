@@ -36,8 +36,8 @@ const Duration GPIOFrameTransmitter::INTER_FRAME_GAP(27555us, false);
 
 GPIOFrameTransmitter::GPIOFrameTransmitter(unsigned gpioNr, bool dryRun, std::function<void(const std::string &)> debugLogger,
 		std::function<void(const std::vector<Duration>&)> durationLogger):
-	m_durationLogger(std::move(durationLogger)),
-	m_debugLogger(std::move(debugLogger))
+	m_debugLogger(std::move(debugLogger)),
+	m_durationLogger(std::move(durationLogger))
 {
 	if (!dryRun)
 	{
