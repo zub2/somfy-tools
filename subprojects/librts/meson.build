@@ -1,3 +1,8 @@
+project('librts', 'cpp',
+        default_options: ['cpp_std=c++17'],
+        license: 'GPLv3'
+)
+
 threads = dependency('threads')
 boost = dependency('boost')
 

@@ -23,15 +23,10 @@ executable('gpio-somfy-decoder', [
 sdr_somfy_decoder_sources = [
 	'IQLogReader.cpp',
 	'IQLogReader.h',
-	'SDRSomfyDecoder.cpp'
+	'SDRSomfyDecoder.cpp',
+	'SigIntHandler.cpp',
+	'SigIntHandler.h'
 ]
-
-if have_rtlsdr
-	sdr_somfy_decoder_sources += [
-		'SigIntHandler.cpp',
-		'SigIntHandler.h'
-	]
-endif
 
 executable('sdr-somfy-decoder',
 	sdr_somfy_decoder_sources,

@@ -3,5 +3,5 @@ project('somfy-tools', 'cpp',
 	license: 'GPLv3'
 )
 
-subdir('librts')
+rts = dependency('librts', fallback: ['librts', 'rts'])
 subdir('src')
