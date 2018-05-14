@@ -6,6 +6,8 @@ The protocol is used by some blinds, shades, rolling shutters, awnings, etc. by 
 
 The code is based on the description available at the [Pushstack blog](https://pushstack.wordpress.com/somfy-rts-protocol/). Also included is a tool to record and play back signal via GPIO. This can be used for debugging.
 
+The reusable parts are currently being factored out into librts. See the librts section for more info.
+
 ## Compiling
 
 Either CMake or [meson](http://mesonbuild.com/), a C++ compiler supporting C++ 17 (e.g. gcc 6.4) and the [boost](http://boost.org/) libraries are required. To build the complete `sdr-somfy-decoder`, [rtl_sdr](https://osmocom.org/projects/sdr/wiki/rtl-sdr) is needed too. (Without rtl_sdr only a version that can decode an IQ log (analytic signal) is built.)
@@ -157,6 +159,15 @@ address: 0x336945
 ## Tests
 
 There are also some tests in the directory `test`. They can be run either via the build system (e.g. `make test`) or by running the executable `tests` directly.
+
+## librts
+
+The reusable parts are being factored out into librts. The original code was written in a way that allows the compiler to inline and optimize it. E.g. Templates were used in place of virtual methods. I did not want to lose this, so still a lot of the code is in headers and it will end up inlined in the appliaction. But the point of librts is in allowing reuse of the code, not so much in sharing the code. That's why only static library is built by default.
+
+The library contains two layers:
+
+* low-lewel: this allows access to pretty much all classes, in the same way as they have been used in somfy-tools
+* high-level interface: this adds an interface on top of the low-level interface. The virtual calls are added on top, so the internals can still be inlined and optimized. This is used in gpio-somfy-transmitter (see subprojects/librts/include/rts/FrameTransmitterFactory.h). Eventually a decoder will be accessible in the same way.
 
 ## Links
 
