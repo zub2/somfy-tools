@@ -1,5 +1,7 @@
 # Somfy-tools
 
+**Development moved to [https://gitlab.com/zub2/somfy-tools](https://gitlab.com/zub2/somfy-tools)**
+
 A set of tools to receive, decode, and transmit Somfy RTS Protocol frames, either on the Raspberry Pi using OOK receiver and transmitter modules connected to GPIO, or (only for input) using [rtl_sdr](https://osmocom.org/projects/sdr/wiki/rtl-sdr).
 
 The protocol is used by some blinds, shades, rolling shutters, awnings, etc. by [Somfy](https://www.somfysystems.com/). If you have such a device, you can use this software to both receive what the Somfy remote sends and also to broadcast your own commands.
